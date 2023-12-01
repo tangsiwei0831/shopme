@@ -63,7 +63,7 @@ public class UserRepositoryTests {
     @Test
 	public void testUpdateUserDetails() {
 		User userNam = repo.findById(1).get();
-		userNam.setEnabled(true);
+		userNam.setEnabled(false);
 		userNam.setEmail("namjavaprogrammer@gmail.com");
 		
 		repo.save(userNam);

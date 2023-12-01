@@ -7,7 +7,9 @@ ShopmeProject
                 |____shopmefrontend
 ```
 
-### problems for creating multi-module spring project
+### problems 
+
+#### for creating multi-module spring project
 
 1. make sure the parent project pom file adds these labels
 
@@ -27,6 +29,10 @@ ShopmeProject
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 ```
+
+#### if using vscode, may encounter issue that extension cannot used
+
+    move the project to C Disk
 
 ## build project
 ```
