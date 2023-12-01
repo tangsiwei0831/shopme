@@ -1,7 +1,7 @@
 ## Multi-module Project Sructure
 ```
 ShopmeProject
-    |____shopmecomon
+    |____shopmecommon
     |____shopmewebparent(simple maven project)
                 |____shopmebackend
                 |____shopmefrontend
