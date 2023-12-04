@@ -34,6 +34,16 @@ ShopmeProject
 
     move the project to C Disk
 
+#### for image upload and display
+
+if you are using VScode, remember to set multi-root work directory, open shopmebackend project first, and then add other relevant projects in to the workspace, this will make sure the `user-photos` directory saves in shopmebackend folder.
+
+If your system is MacOS or Linux, Update `MvcConfig` in shopemebackend as
+```
+    .addResourceLocations("file:" + userPhotosPath + "/");
+```
+
+
 ## build project
 ```
     # in root folder which is shopemeproject folder
