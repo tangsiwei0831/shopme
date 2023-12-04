@@ -3,6 +3,7 @@ package com.shopme.admin.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -78,6 +79,13 @@ public class UserController {
         return "redirect:/users";
     }
 
-
-
+    @GetMapping("/users/{id}/enabled/{status}")
+    public String updateUserEnabledStatus(@PathVariable("id") Integer id, @PathVariable("status") boolean enabled,
+    RedirectAttributes redirectAttributes){
+        service.updateUserEnabledStatus(id, enabled);
+        String status = enabled ? "enabled" : "disabled";
+        String message = "The user ID " + id + " has been " + status;
+        redirectAttributes.addFlashAttribute("message", message);
+        return "redirect:/users";
+    }
 }
