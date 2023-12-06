@@ -32,7 +32,7 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     public List<User> listAll(){
-        return (List<User>)userRepo.findAll();
+        return (List<User>)userRepo.findAll(Sort.by("firstName").ascending());
     };
 
     // html is 1-based and in systen is 0-based
