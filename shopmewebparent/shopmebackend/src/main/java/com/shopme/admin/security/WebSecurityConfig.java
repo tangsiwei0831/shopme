@@ -47,7 +47,8 @@ public class WebSecurityConfig {
 	protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 		.authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
-		.formLogin(form -> form.loginPage("/login").usernameParameter("email").permitAll());
+		.formLogin(form -> form.loginPage("/login").usernameParameter("email").permitAll())
+		.logout(logout ->logout.permitAll());
 		return http.build();
 	}
 
