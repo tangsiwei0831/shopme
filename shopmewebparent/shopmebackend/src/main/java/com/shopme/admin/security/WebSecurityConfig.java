@@ -12,9 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.RememberMeServices;
-import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
-import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices.RememberMeTokenAlgorithm;
 
  
 @Configuration
@@ -49,7 +46,8 @@ public class WebSecurityConfig {
     @Bean
 	protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
-		.authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
+		.authorizeHttpRequests(authz -> authz.requestMatchers("/users/**").hasAuthority("Admin")
+		.anyRequest().authenticated())
 		.formLogin(form -> form.loginPage("/login").usernameParameter("email").permitAll())
 		.logout(logout ->logout.permitAll())
 		.rememberMe(remember->remember.key("yangzhang").tokenValiditySeconds(7*24*60*60));
