@@ -40,9 +40,15 @@ if you are using VScode, remember to set multi-root work directory, open shopmeb
 
 If your system is MacOS or Linux, Update `MvcConfig` in shopemebackend as
 ```
-    .addResourceLocations("file:" + userPhotosPath + "/");
+.addResourceLocations("file:" + userPhotosPath + "/");
 ```
 
+#### unit test - duplicate entry
+```
+    SET FOREIGN_KEY_CHECKS = 0;
+    <!-- set parent_id not unique by alter table -->
+    SET FOREIGN_KEY_CHECKS = 1;
+```
 
 ## build project
 ```
