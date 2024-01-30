@@ -9,6 +9,7 @@ import org.springframework.test.annotation.Rollback;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 // import java.util.List;
 import java.util.Set;
 
@@ -88,6 +89,12 @@ public class CategoryRepositoryTest {
 			
 			printChildren(subCategory, newSubLevel);
 		}		
+	}
+
+	@Test
+	public void testListRootCategories() {
+		List<Category> rootCategories = repo.findRoolCategories();
+		rootCategories.forEach(cat -> System.out.println(cat.getName()));
 	}
     
 }
