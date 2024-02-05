@@ -11,4 +11,8 @@ import com.shopme.common.entity.Category;
 public interface CategoryRepository extends PagingAndSortingRepository<Category, Integer>, CrudRepository<Category, Integer>{
     @Query("SELECT c FROM Category c WHERE c.parent.id is NULL")
     public List<Category> findRoolCategories();
+
+    public Category findByName(String name);
+
+    public Category findByAlias(String alias);
 }
