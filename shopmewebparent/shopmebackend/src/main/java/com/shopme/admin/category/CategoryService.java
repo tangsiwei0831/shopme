@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.shopme.common.entity.Category;
 
 @Service
+@jakarta.transaction.Transactional
 public class CategoryService {
     @Autowired
     private CategoryRepository repo;
@@ -170,5 +171,9 @@ public class CategoryService {
 		sortedChildren.addAll(children);
 		
 		return sortedChildren;
+	}
+
+	public void updateCategoryEnabledStatus(Integer id, boolean enabled) {
+		repo.updateEnabledStatus(id, enabled);
 	}
 }
